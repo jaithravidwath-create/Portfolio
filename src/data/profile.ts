@@ -18,13 +18,14 @@ export const profile = {
   },
 }
 
-/** Full page order. Interests remains a page section between Projects and Work Experience. */
+/** Full page order. Interests remains in the page flow before achievements and work experience. */
 export const sections = [
   { id: 'home', label: 'Home', shortLabel: 'Home', icon: 'home' },
   { id: 'about', label: 'About', shortLabel: 'About', icon: 'user' },
   { id: 'skills', label: 'Skills', shortLabel: 'Skills', icon: 'code' },
   { id: 'projects', label: 'Projects', shortLabel: 'Projects', icon: 'layers' },
   { id: 'interests', label: 'Interests', shortLabel: 'Interests', icon: 'spark' },
+  { id: 'achievements', label: 'Achievements and Certifications', shortLabel: 'Achievements', icon: 'check' },
   { id: 'experience', label: 'Work Experience', shortLabel: 'Work', icon: 'briefcase' },
   { id: 'resume', label: 'Resume', shortLabel: 'Resume', icon: 'file' },
   { id: 'contact', label: 'Contact', shortLabel: 'Contact', icon: 'mail' },
@@ -39,6 +40,7 @@ export const navigationSections = [
   sections[5],
   sections[6],
   sections[7],
+  sections[8],
 ] as const
 
 export const programmingLanguages = ['C', 'Python', 'Java', 'JavaScript', 'SQL']
@@ -66,6 +68,13 @@ export const interestLabels = [
   { title: 'Object-Oriented Programming', eyebrow: '06 / modeling ideas', description: 'Interested in organizing application logic around clear objects, responsibilities, and relationships.', kind: 'oop' },
   { title: 'Database Management Systems', eyebrow: '07 / information with structure', description: 'Exploring how data can be modeled, stored, and accessed reliably inside useful applications.', kind: 'dbms' },
 ] as const
+
+export const achievements = [
+  { title: 'Reliance Foundation Scholar', type: 'Scholarship', description: 'Recognized as a Reliance Foundation Scholar.' },
+  { title: 'Introduction to Programming in C', type: 'NPTEL course', description: 'A programming foundation course by NPTEL.' },
+] as const
+
+export const learningNote = 'I’m presently pursuing multiple NPTEL courses and continuing to build my foundations through structured learning.'
 
 export type Project = {
   number: string
@@ -136,6 +145,8 @@ export const verifiedKnowledge = {
   toolsAndTechnologies: [...databases, ...tools],
   currentlyLearning: learningSkills.map(({ name, label }) => ({ name, label })),
   interests: interestLabels.map((item) => item.title),
+  achievements,
+  learningNote,
   projects: projects.map(({ title, description, technologies, repository }) => ({ title, description, technologies, repository })),
   experience: {
     title: "McKinsey Forward Program Fellow '25",

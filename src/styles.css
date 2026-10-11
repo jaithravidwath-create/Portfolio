@@ -54,3 +54,17 @@
 @keyframes learning-fade { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
 @media (max-width:780px) { .learning-skills__heading { align-items:start; }.learning-strip__row { grid-template-columns:1fr; }.learning-skill { min-height:58px; }.interest-card:last-child { grid-column:auto; } }
 @media (prefers-reduced-motion:reduce) { .learning-strip__row { animation:none; } }
+
+/* Achievements and Certifications */
+.achievements-grid { display:grid; grid-template-columns:.72fr 1.28fr; gap:82px; align-items:start; }
+.achievements-grid .section-heading { margin-bottom:0; }
+.achievements-list { border-top:1px solid var(--line); }
+.achievement-card { display:grid; grid-template-columns:34px 1fr 24px; gap:18px; align-items:center; padding:25px 0; border-bottom:1px solid var(--line); }
+.achievement-card__number { color:var(--brown); font:500 10px var(--mono); }
+.achievement-card__type { color:var(--brown); font:500 10px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+.achievement-card h3 { margin:8px 0 6px; font-size:clamp(1.5rem,2.6vw,2.35rem); line-height:1; }
+.achievement-card p { margin:0; color:var(--muted); font-size:14px; line-height:1.6; }
+.achievement-card > svg { width:20px; height:20px; color:var(--brown); }
+.achievement-note { grid-column:2; margin:24px 0 0; color:var(--muted); font:400 11px/1.7 var(--mono); }
+.hero-copy h1 { letter-spacing:-.035em; }
+@media (max-width:780px) { .achievements-grid { grid-template-columns:1fr; gap:45px; }.achievements-grid .section-heading { margin-bottom:0; }.achievement-note { grid-column:auto; }.hero-copy h1 { letter-spacing:-.025em; } }
