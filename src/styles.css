@@ -166,3 +166,6 @@ body { transition:background-color .28s ease,color .28s ease; }
   .theme-toggle { flex:0 0 35px; }
   .dock-items { overflow-x:auto; overflow-y:hidden; }
 }
+
+/* Preview edit: tighten About lead typography for comfortable reading. */
+.about-lead p { font-size:20px; }
