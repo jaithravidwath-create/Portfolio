@@ -72,3 +72,32 @@
 /* Preview edit: lighter interest-card surfaces, unchanged section background and hover state */
 .interest-card { background:var(--cream); }
 .interest-card:hover { background:var(--paper); }
+
+/* Portfolio expansion: current work, clubs, links, resume balance, and compact dock */
+.work-projects { margin-top:62px; padding-top:28px; border-top:1px solid var(--line); }
+.work-projects > .eyebrow { margin-bottom:20px; }
+.work-project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.work-project-card { min-height:210px; padding:22px; border:1px solid var(--line); background:var(--cream); transition:transform .2s ease,background .2s ease,box-shadow .2s ease; }
+.work-project-card:hover,.work-project-card:focus-within { background:var(--paper); transform:translateY(-4px); box-shadow:var(--shadow); }
+.work-project-card .project-number { color:var(--brown); font:500 14px var(--mono); }
+.work-project-card h3 { margin:25px 0 10px; font-size:1.55rem; line-height:1.05; }
+.work-project-card p { min-height:72px; margin:0 0 18px; color:var(--muted); font-size:13px; line-height:1.55; }
+.work-project-card__tech { display:block; padding-top:13px; border-top:1px solid var(--line); color:var(--brown-dark); font:500 10px/1.45 var(--mono); }
+.achievement-card__type { display:inline-flex; align-items:center; gap:7px; }
+.achievement-card > svg { padding:3px; border:1px solid rgba(166,124,82,.35); border-radius:50%; background:rgba(229,213,195,.45); }
+.clubs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.club-card { display:grid; grid-template-columns:46px 1fr; gap:18px; align-items:start; padding:28px; border:1px solid var(--line); background:var(--cream); transition:transform .2s ease,background .2s ease,box-shadow .2s ease; }
+.club-card:hover,.club-card:focus-within { background:var(--paper); transform:translateY(-4px); box-shadow:var(--shadow); }
+.club-card__icon { display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:var(--navy); color:var(--cream); }
+.club-card__icon svg { width:21px; height:21px; }
+.club-card__label { color:var(--brown); font:500 10px var(--mono); letter-spacing:.12em; }
+.club-card h3 { margin:9px 0 9px; font-size:1.65rem; line-height:1.05; }
+.club-card p { margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
+.resume-grid { grid-template-columns:minmax(300px,.95fr) minmax(420px,1.05fr); gap:74px; }
+.resume-grid .section-heading__intro { max-width:540px; }
+.resume-panel { grid-template-columns:minmax(210px,.75fr) minmax(330px,1.25fr); gap:40px; padding:42px 48px; }
+.resume-copy { max-width:500px; }
+.resume-actions { margin-left:12px; }
+.dock-items { max-height:calc(100vh - 160px); overflow-y:auto; scrollbar-width:none; }
+.dock-items::-webkit-scrollbar { display:none; }
+@media (max-width:780px) { .work-project-grid,.clubs-grid { grid-template-columns:1fr; }.resume-grid { grid-template-columns:1fr; }.resume-panel { grid-template-columns:1fr; padding:24px; }.resume-actions { margin-left:0; justify-content:center; }.dock-items { max-width:calc(100vw - 24px); overflow-x:auto; overflow-y:hidden; justify-content:flex-start; }.club-card { padding:22px; } }

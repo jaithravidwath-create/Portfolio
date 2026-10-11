@@ -18,13 +18,15 @@ const fallbackReply = (question: string) => {
   if (normalized.includes('github')) return `Jaithra's GitHub is https://github.com/jaithravidwath-create.`
   if (normalized.includes('linkedin')) return `Jaithra's LinkedIn is https://www.linkedin.com/in/jaithra-vidwath-kavuri-805197371/.`
   if (normalized.includes('leetcode')) return `Jaithra's LeetCode profile is https://leetcode.com/u/vidwath007/.`
-  if (normalized.includes('resume') || normalized.includes('cv')) return `The portfolio looks for the resume at ${verifiedKnowledge.resume}. It has not been added to this project yet.`
+  if (normalized.includes('resume') || normalized.includes('cv')) return `The professional resume is available at ${verifiedKnowledge.resume}.`
   if (normalized.includes('contact') || normalized.includes('email')) return `You can contact Jaithra at ${verifiedKnowledge.contact.email}.`
   if (normalized.includes('phone') || normalized.includes('mobile')) return `Jaithra's mobile number is ${verifiedKnowledge.contact.mobile}.`
-  if (normalized.includes('project')) return `Jaithra has developed an Equipment Rental Application, a Blood Donor Management System using Python, and a Smart Traffic Management System using C.`
-  if (normalized.includes('language') || normalized.includes('skill')) return `The supplied profile lists C, Python, Java, JavaScript, and SQL, plus MongoDB, MongoDB Atlas, Postman, and Visual Studio Code.`
+  if (normalized.includes('project')) return `Jaithra has developed an Equipment Rental Application, a Blood Donor Management System using Python, and a Smart Traffic Management System using C. Current work includes Smart Hostel Room Allotment System, Sales Forecasting with Curve Fitting, and AI-Driven Network Aware Smart Street Lighting.`
+  if (normalized.includes('language') || normalized.includes('skill')) return `The supplied profile lists C, Python, Java, JavaScript, SQL, and MATLAB, plus MongoDB, MongoDB Atlas, Postman, and Visual Studio Code.`
+  if (normalized.includes('club') || normalized.includes('isoc') || normalized.includes('iste')) return `Jaithra is a member of ISOC (Internet Society) and ISTE (Indian Society for Technical Education).`
+  if (normalized.includes('scholar') || normalized.includes('certif')) return `The profile lists Reliance Foundation Scholar, CSS Scholarship applicant for 2025, and the NPTEL Introduction to Programming in C course, along with multiple NPTEL and Coursera certifications presently underway.`
   if (normalized.includes('interest')) return `Jaithra is interested in Internet of Things, Machine Learning, full-stack development, and programming/problem-solving.`
-  return `Ask JVK is not connected to its live AI service yet. I can confirm that Jaithra is a sophomore studying B.Tech CSE-IoT at VNR VJIET and exploring practical software.`
+  return `JBot AI is not connected to its live AI service yet. I can confirm that Jaithra is a sophomore studying B.Tech CSE-IoT at VNR VJIET and exploring practical software.`
 }
 
 function validMessages(value: unknown): Array<{ role: 'user' | 'assistant'; content: string }> | null {
@@ -45,7 +47,7 @@ app.post('/api/chat', async (req: Request, res: Response) => {
 
   const address = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown').split(',')[0]
   const now = Date.now()
-  if (now - (requestTimestamps.get(address) || 0) < 2200) return res.status(429).json({ error: 'Please give Ask JVK a moment before sending another question.' })
+  if (now - (requestTimestamps.get(address) || 0) < 2200) return res.status(429).json({ error: 'Please give JBot AI a moment before sending another question.' })
   requestTimestamps.set(address, now)
   if (requestTimestamps.size > 500) requestTimestamps.clear()
 
@@ -54,7 +56,7 @@ app.post('/api/chat', async (req: Request, res: Response) => {
 
   const baseUrl = (process.env.OPENAI_API_BASE || 'https://api.openai.com/v1').replace(/\/$/, '')
   const model = process.env.OPENAI_MODEL || 'gpt-5-mini'
-  const system = `You are Ask JVK, a truthful portfolio assistant. Answer only from the verified profile JSON below. Never invent qualifications, grades, awards, statistics, project features, responsibilities, or employer relationships. Do not claim employment by McKinsey & Company; describe McKinsey Forward as a fellowship/program. Distinguish interests from completed projects. If a detail is not present, say it is not available. Give exact profile links when asked. Only disclose the mobile number when the user explicitly asks for contact details or the phone number; do not include it in greetings or unrelated answers. Keep answers concise, natural, and useful.\n\nVERIFIED PROFILE JSON:\n${JSON.stringify(verifiedKnowledge)}`
+  const system = `You are JBot AI, a truthful portfolio assistant. Answer only from the verified profile JSON below. Never invent qualifications, grades, awards, statistics, project features, responsibilities, or employer relationships. Do not claim employment by McKinsey & Company; describe McKinsey Forward as a fellowship/program. Distinguish interests from completed projects. If a detail is not present, say it is not available. Give exact profile links when asked. Only disclose the mobile number when the user explicitly asks for contact details or the phone number; do not include it in greetings or unrelated answers. Keep answers concise, natural, and useful.\n\nVERIFIED PROFILE JSON:\n${JSON.stringify(verifiedKnowledge)}`
   try {
     const upstream = await fetch(`${baseUrl}/chat/completions`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` }, body: JSON.stringify({ model, max_completion_tokens: 420, reasoning: { effort: 'minimal' }, messages: [{ role: 'system', content: system }, ...messages] }) })
     if (!upstream.ok) { console.error('Chat upstream status:', upstream.status); return res.status(502).json({ error: 'The live AI service is unavailable right now. Please try again later.' }) }

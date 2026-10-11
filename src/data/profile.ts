@@ -1,4 +1,6 @@
 export type ProfileIcon = 'github' | 'linkedin' | 'leetcode'
+export type AchievementIcon = 'scholarship' | 'nptel' | 'check'
+export type ClubIcon = 'isoc' | 'iste'
 export type LearningSkillIcon = 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript'
 
 export const profile = {
@@ -12,6 +14,7 @@ export const profile = {
   headline: 'Thoughtful code. Meaningful connections.',
   intro: "I'm a CSE-IoT student and full-stack application developer exploring the possibilities of connected systems, intelligent technology, and practical software solutions.",
   resumePath: '/resume.pdf',
+  resumeDescription: 'Professional resume containing all information',
   contact: {
     email: 'jaithra.vidwath@gmail.com',
     mobile: '9390002551',
@@ -22,13 +25,15 @@ export const profile = {
 export const sections = [
   { id: 'home', label: 'Home', shortLabel: 'Home', icon: 'home' },
   { id: 'about', label: 'About', shortLabel: 'About', icon: 'user' },
-  { id: 'skills', label: 'Skills', shortLabel: 'Skills', icon: 'code' },
-  { id: 'projects', label: 'Projects', shortLabel: 'Projects', icon: 'layers' },
+  { id: 'skills', label: 'Skillset', shortLabel: 'Skillset', icon: 'code' },
   { id: 'interests', label: 'Interests', shortLabel: 'Interests', icon: 'spark' },
+  { id: 'projects', label: 'Projects', shortLabel: 'Projects', icon: 'layers' },
   { id: 'achievements', label: 'Achievements and Certifications', shortLabel: 'Achievements', icon: 'check' },
   { id: 'experience', label: 'Work Experience', shortLabel: 'Work', icon: 'briefcase' },
+  { id: 'clubs', label: 'Clubs', shortLabel: 'Clubs', icon: 'clubs' },
   { id: 'resume', label: 'Resume', shortLabel: 'Resume', icon: 'file' },
   { id: 'contact', label: 'Contact', shortLabel: 'Contact', icon: 'mail' },
+  { id: 'links', label: 'Links', shortLabel: 'Links', icon: 'link' },
 ] as const
 
 /** The dock intentionally omits Interests while the section remains discoverable in the page flow. */
@@ -37,10 +42,13 @@ export const navigationSections = [
   sections[1],
   sections[2],
   sections[3],
+  sections[4],
   sections[5],
   sections[6],
   sections[7],
   sections[8],
+  sections[9],
+  sections[10],
 ] as const
 
 export const programmingLanguages = ['C', 'Python', 'Java', 'JavaScript', 'SQL', 'MATLAB']
@@ -69,12 +77,24 @@ export const interestLabels = [
   { title: 'Database Management Systems', eyebrow: '07 / information with structure', description: 'Exploring how data can be modeled, stored, and accessed reliably inside useful applications.', kind: 'dbms' },
 ] as const
 
-export const achievements = [
-  { title: 'Reliance Foundation Scholar', type: 'Scholarship', description: 'Recognized as a Reliance Foundation Scholar.' },
-  { title: 'Introduction to Programming in C', type: 'NPTEL course', description: 'A programming foundation course by NPTEL.' },
+export const achievements: Array<{ title: string; type: string; description: string; icon: AchievementIcon }> = [
+  { title: 'Reliance Foundation Scholar', type: 'Scholarship', description: 'Recognized as a Reliance Foundation Scholar.', icon: 'scholarship' },
+  { title: 'CSS Scholarship', type: 'Scholarship applicant', description: 'Applicant of MHRD CSS Scholarship for College and University Students 2025.', icon: 'scholarship' },
+  { title: 'Introduction to Programming in C', type: 'NPTEL course', description: 'A programming foundation course by NPTEL.', icon: 'nptel' },
 ] as const
 
 export const learningNote = 'And other multiple NPTEL and Coursera certifications being done presently.'
+export const workProjects = [
+  { title: 'Smart Hostel Room Allotment System', technology: 'DBMS (SQL)', description: 'A database-focused system concept for organizing hostel room allotment and related student records.' },
+  { title: 'Sales Forecasting with Curve Fitting', technology: 'MATLAB', description: 'A MATLAB study exploring curve fitting as a way to examine sales patterns and forecast trends.' },
+  { title: 'AI-Driven Network Aware Smart Street Lighting', technology: 'Predictive Quality of Service (pQoS) in Computer Networks', description: 'A forward-looking smart-lighting concept using network-aware intelligence and predictive QoS.' },
+] as const
+
+export const clubs = [
+  { name: 'ISOC', fullName: 'Internet Society', description: 'Member of ISOC, engaging with ideas around an open, connected, and resilient Internet.', icon: 'isoc' as const },
+  { name: 'ISTE', fullName: 'Indian Society for Technical Education', description: 'Member of ISTE, connecting with technical education, learning, and professional development.', icon: 'iste' as const },
+] as const
+
 
 export type Project = {
   number: string
@@ -119,7 +139,7 @@ export const profiles: Array<{ name: string; handle: string; href: string; descr
   { name: 'LeetCode', handle: 'vidwath007', href: 'https://leetcode.com/u/vidwath007/', description: 'Explore my coding practice and problem-solving journey.', icon: 'leetcode' },
 ]
 
-export const chatbotWelcome = "Hey, I'm Ask JVK. Curious about Jaithra's projects, technical interests, skills, or experience? Ask me anything."
+export const chatbotWelcome = "Hey, I'm JBot AI. Curious about Jaithra's projects, technical interests, skills, or experience? Ask me anything."
 export const suggestedQuestions = [
   'Tell me about Jaithra.',
   'What projects has he developed?',
@@ -147,6 +167,8 @@ export const verifiedKnowledge = {
   interests: interestLabels.map((item) => item.title),
   achievements,
   learningNote,
+  clubs,
+  workProjects,
   projects: projects.map(({ title, description, technologies, repository }) => ({ title, description, technologies, repository })),
   experience: {
     title: "McKinsey Forward Program Fellow '25",

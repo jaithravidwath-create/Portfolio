@@ -1,6 +1,6 @@
 import type { ReactNode, SVGProps } from 'react'
 
-type IconName = 'home' | 'user' | 'file' | 'code' | 'layers' | 'spark' | 'briefcase' | 'mail' | 'github' | 'linkedin' | 'leetcode' | 'arrowUpRight' | 'download' | 'send' | 'close' | 'message' | 'check' | 'external' | 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript'
+type IconName = 'home' | 'user' | 'file' | 'code' | 'layers' | 'spark' | 'briefcase' | 'mail' | 'github' | 'linkedin' | 'leetcode' | 'arrowUpRight' | 'download' | 'send' | 'close' | 'message' | 'check' | 'external' | 'link' | 'clubs' | 'scholarship' | 'nptel' | 'isoc' | 'iste' | 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript'
 
 type Props = SVGProps<SVGSVGElement> & { name: IconName }
 
@@ -25,6 +25,12 @@ export function Icon({ name, ...props }: Props) {
     close: <><path d="m4 4 8 8M12 4l-8 8" /></>,
     message: <><path d="M3 4.5h10v7H7l-3 2v-2H3z" /><path d="M5.5 7.5h5M5.5 9.5h3" /></>,
     check: <path d="m4 8 2.5 2.5L12 5" />,
+    link: <><circle cx="5.5" cy="8" r="2.5" /><circle cx="10.5" cy="8" r="2.5" /><path d="M7.5 8h1" /></>,
+    clubs: <><path d="M5 11.5h6M8 8v3.5M5.5 13.5h5" /><circle cx="5" cy="6" r="2" /><circle cx="8" cy="4.5" r="2" /><circle cx="11" cy="6" r="2" /></>,
+    scholarship: <><path d="m2.5 6 5.5-3 5.5 3-5.5 3z" /><path d="M4.5 7.2v3.2c1.9 1.5 5.1 1.5 7 0V7.2M13.5 6v4" /></>,
+    nptel: text('N', 8, 10.4, 8),
+    isoc: <><circle cx="8" cy="8" r="5.5" /><path d="M3.5 8h9M8 2.5c1.5 1.6 2.2 3.4 2.2 5.5S9.5 11.9 8 13.5C6.5 11.9 5.8 10.1 5.8 8S6.5 4.1 8 2.5Z" /></>,
+    iste: text('I', 8, 10.5, 9),
     external: <><path d="M8 3h5v5M13 3 7.5 8.5" /><path d="M11 7v4.5H3.5v-7H8" /></>,
     git: <><path d="m5 4 3 2 3-2M5 12l3-2 3 2M8 6v4" /><circle cx="5" cy="4" r="1.3" /><circle cx="11" cy="4" r="1.3" /><circle cx="5" cy="12" r="1.3" /><circle cx="11" cy="12" r="1.3" /></>,
     cpp: text('C++', 8, 10.5, 5.5),
