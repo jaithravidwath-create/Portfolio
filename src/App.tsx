@@ -8,6 +8,14 @@ import { SectionHeading } from './components/SectionHeading'
 import { achievements, clubs, databases, interestLabels, learningNote, programmingLanguages, profile, profiles, projects, sections, tools, workProjects } from './data/profile'
 
 type InterestKind = typeof interestLabels[number]['kind']
+type Theme = 'light' | 'dark'
+
+function initialTheme(): Theme {
+  if (typeof window === 'undefined') return 'light'
+  const stored = window.localStorage.getItem('jvk-theme')
+  if (stored === 'light' || stored === 'dark') return stored
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
 
 function InterestGraphic({ kind }: { kind: InterestKind }) {
   return <div className="interest-graphic" aria-hidden="true">
@@ -25,6 +33,11 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['home']))
   const [resumeAvailable, setResumeAvailable] = useState(false)
+  const [theme, setTheme] = useState<Theme>(initialTheme)
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    window.localStorage.setItem('jvk-theme', theme)
+  }, [theme])
 
   useEffect(() => {
     const nodes = sections.map((section) => document.getElementById(section.id)).filter(Boolean) as HTMLElement[]
@@ -42,7 +55,7 @@ function App() {
   const reveal = (id: string) => visibleSections.has(id) ? 'is-visible' : ''
 
   return <div className="site-shell">
-    <FloatingDock activeSection={activeSection} />
+    <FloatingDock activeSection={activeSection} theme={theme} onToggleTheme={() => setTheme((current) => current === 'light' ? 'dark' : 'light')} />
     <main>
       <section id="home" className={`section hero-section ${reveal('home')}`}>
         <div className="page-width hero-grid">

@@ -1,6 +1,6 @@
 import type { ReactNode, SVGProps } from 'react'
 
-type IconName = 'home' | 'user' | 'file' | 'code' | 'layers' | 'spark' | 'briefcase' | 'mail' | 'github' | 'linkedin' | 'leetcode' | 'arrowUpRight' | 'download' | 'send' | 'close' | 'message' | 'check' | 'external' | 'link' | 'clubs' | 'scholarship' | 'nptel' | 'isoc' | 'iste' | 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript'
+type IconName = 'home' | 'user' | 'file' | 'code' | 'layers' | 'spark' | 'briefcase' | 'mail' | 'github' | 'linkedin' | 'leetcode' | 'arrowUpRight' | 'download' | 'send' | 'close' | 'message' | 'check' | 'external' | 'link' | 'clubs' | 'scholarship' | 'nptel' | 'isoc' | 'iste' | 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript' | 'sun' | 'moon'
 
 type Props = SVGProps<SVGSVGElement> & { name: IconName }
 
@@ -41,6 +41,8 @@ export function Icon({ name, ...props }: Props) {
     sql: <><path d="M3 4c0-1 2.2-1.8 5-1.8s5 .8 5 1.8-2.2 1.8-5 1.8S3 5 3 4Z" /><path d="M3 4v4c0 1 2.2 1.8 5 1.8M13 4v4M3 8v4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V8" /></>,
     java: <><path d="M5 11.5h6.5M5.5 8.5c3 1.8 3.2-1.4 1.5-2.5 2.9 1.3 3.2 3.5 1.2 4.5M7 3.5c2.3 1.6.5 2.2 1.5 3.4" /></>,
     typescript: <><rect x="2.3" y="2.3" width="11.4" height="11.4" rx="1.2" fill="currentColor" stroke="none" /><text x="8" y="10.8" textAnchor="middle" fontSize="5.6" fontFamily="ui-monospace, monospace" fontWeight="700" fill="var(--cream)" stroke="none">TS</text></>,
+    sun: <><circle cx="8" cy="8" r="2.7" /><path d="M8 1.5v1.4M8 13.1v1.4M1.5 8h1.4M13.1 8h1.4M3.4 3.4l1 1M11.6 11.6l1 1M12.6 3.4l-1 1M4.4 11.6l-1 1" /></>,
+    moon: <path d="M12.8 10.7A5.4 5.4 0 0 1 5.3 3.2 5.5 5.5 0 1 0 12.8 10.7Z" />,
   }
   return <svg aria-hidden="true" viewBox="0 0 16 16" {...common} {...props}>{paths[name]}</svg>
 }

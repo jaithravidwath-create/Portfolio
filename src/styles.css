@@ -130,3 +130,39 @@
   .hero-visual { transform:translateY(-50%) rotate(4deg); }
 }
 @media (max-width:780px) and (prefers-reduced-motion:reduce) { .hero-visual { transform:rotate(3deg); } }
+
+/* Accessibility theme controls. The dark palette keeps the same editorial contrast and warmth. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --cream:#11161b;
+  --paper:#1b2229;
+  --beige:#2a333c;
+  --brown:#d2a36b;
+  --brown-dark:#f0cf9f;
+  --navy:#e5edf4;
+  --ink:#ecf1f5;
+  --muted:#aeb8c2;
+  --line:rgba(229,237,244,.2);
+  --shadow:0 18px 50px rgba(0,0,0,.3);
+}
+:root[data-theme='dark'] .section--contact,
+:root[data-theme='dark'] .featured-project,
+:root[data-theme='dark'] .chat-panel__header { background:#0d1217; }
+:root[data-theme='dark'] .featured-project p { color:rgba(236,241,245,.72); }
+:root[data-theme='dark'] .contact-letter > p:not(.eyebrow) { color:rgba(236,241,245,.7); }
+:root[data-theme='dark'] .chat-panel { border-color:var(--navy); }
+:root[data-theme='dark'] .chat-input input { background:var(--paper); }
+body { transition:background-color .28s ease,color .28s ease; }
+
+.theme-toggle { position:relative; display:grid; place-items:center; width:35px; height:35px; padding:0; border:1px solid var(--line); border-radius:50%; background:var(--paper); color:var(--navy); transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+.theme-toggle:hover,.theme-toggle:focus-visible { border-color:var(--brown); background:var(--beige); transform:translateY(-2px); }
+.theme-toggle__track { position:relative; display:block; width:19px; height:11px; border:1px solid currentColor; border-radius:8px; }
+.theme-toggle__thumb { position:absolute; top:1px; left:1px; width:7px; height:7px; border-radius:50%; background:currentColor; transition:transform .2s ease; }
+.theme-toggle[aria-checked='true'] .theme-toggle__thumb { transform:translateX(8px); }
+.theme-toggle:focus-visible,.dock-item:focus-visible { outline:2px solid var(--brown); outline-offset:3px; }
+.dock-items { overflow:visible; }
+.dock-tooltip { z-index:30; }
+@media (max-width:780px) {
+  .theme-toggle { flex:0 0 35px; }
+  .dock-items { overflow-x:auto; overflow-y:hidden; }
+}
