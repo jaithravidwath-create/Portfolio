@@ -43,7 +43,7 @@ export const navigationSections = [
   sections[8],
 ] as const
 
-export const programmingLanguages = ['C', 'Python', 'Java', 'JavaScript', 'SQL']
+export const programmingLanguages = ['C', 'Python', 'Java', 'JavaScript', 'SQL', 'MATLAB']
 export const databases = ['MongoDB', 'MongoDB Atlas']
 export const tools = ['Postman', 'Visual Studio Code']
 

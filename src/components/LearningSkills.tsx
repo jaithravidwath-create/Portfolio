@@ -9,7 +9,7 @@ export function LearningSkills() {
   const [rowIndex, setRowIndex] = useState(0)
 
   useEffect(() => {
-    const timer = window.setInterval(() => setRowIndex((current) => (current + 1) % rows.length), 1500)
+    const timer = window.setInterval(() => setRowIndex((current) => (current + 1) % rows.length), 700)
     return () => window.clearInterval(timer)
   }, [])
 
