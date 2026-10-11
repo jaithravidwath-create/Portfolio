@@ -47,8 +47,8 @@ function App() {
       <section id="home" className={`section hero-section ${reveal('home')}`}>
         <div className="page-width hero-grid">
           <div className="hero-copy">
-            <p className="topline"><span className="topline__mark">JVK</span><span>Portfolio / 2025—26</span><span className="topline__line" /></p>
-            <p className="eyebrow hero-eyebrow">CSE-IoT student · Full-stack application developer</p>
+            <p className="topline"><span className="topline__mark" /><span>Portfolio / 2026</span><span className="topline__line" /></p>
+            <p className="eyebrow hero-eyebrow">CSE-IoT student · Full-stack application development enthusiast</p>
             <h1>{profile.name}</h1>
             <p className="hero-headline">{profile.headline}</p>
             <p className="hero-intro">{profile.intro}</p>
@@ -57,10 +57,10 @@ function App() {
           </div>
           <div className="hero-visual" aria-label="Portrait of Jaithra Vidwath Kavuri" role="img">
             <img className="hero-portrait" src="/vidwathpic.jpeg" alt="Jaithra Vidwath Kavuri wearing glasses and headphones" />
-            <span className="hero-portrait__caption">curiosity → making</span>
+            <span className="hero-portrait__caption" />
           </div>
         </div>
-        <div className="hero-footer page-width"><span>Scroll to explore</span><span className="hero-footer__line" /><span>01 / 11</span></div>
+        <div className="hero-footer page-width"><span /><span className="hero-footer__line" /><span>01 / 11</span></div>
       </section>
 
       <section id="about" className={`section section--about ${reveal('about')}`}><div className="page-width"><SectionHeading index="02" eyebrow="A little context" title="Learning by building." intro="A grounded introduction to the person behind the projects." /><div className="about-grid section-reveal"><div className="about-lead"><p>I’m a <strong>sophomore</strong> pursuing {profile.education} at {profile.college}. I enjoy the space where programming, connected systems, and practical software meet.</p><p>I work with <strong>C, Python, Java, JavaScript, SQL, and MATLAB</strong>, and have explored building with MongoDB, MongoDB Atlas, Postman, and Visual Studio Code.</p></div><div className="about-side"><div className="about-note"><span className="about-note__number">01</span><p>Based in</p><strong>{profile.location}</strong></div><div className="about-note"><span className="about-note__number">02</span><p>Currently exploring</p><strong>IoT · ML · full-stack</strong></div></div></div><div className="about-bottom section-reveal"><p>So far, that curiosity has taken shape through an <strong>Equipment Rental Application</strong>, a <strong>Blood Donor Management System</strong>, and a <strong>Smart Traffic Management System</strong>. I’m interested in learning openly, solving problems carefully, and making useful things.</p><span className="hand-note">/ no inflated claims, just honest work</span></div></div></section>

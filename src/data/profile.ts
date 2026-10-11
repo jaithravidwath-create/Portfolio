@@ -12,7 +12,7 @@ export const profile = {
   status: 'Sophomore',
   location: 'Hyderabad, India',
   headline: 'Thoughtful code. Meaningful connections.',
-  intro: "I'm a CSE-IoT student and full-stack application developer exploring the possibilities of connected systems, intelligent technology, and practical software solutions.",
+  intro: "I'm a CSE-IoT sophomore at VNRVJIET and a beginner full-stack application developer exploring intelligent technology and smart software solutions.",
   resumePath: '/resume.pdf',
   resumeDescription: 'Professional resume containing all information',
   contact: {
