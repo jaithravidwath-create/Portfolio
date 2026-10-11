@@ -74,7 +74,7 @@ export const achievements = [
   { title: 'Introduction to Programming in C', type: 'NPTEL course', description: 'A programming foundation course by NPTEL.' },
 ] as const
 
-export const learningNote = 'I’m presently pursuing multiple NPTEL courses and continuing to build my foundations through structured learning.'
+export const learningNote = 'And other multiple NPTEL and Coursera certifications being done presently.'
 
 export type Project = {
   number: string

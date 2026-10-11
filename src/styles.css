@@ -65,7 +65,7 @@
 .achievement-card h3 { margin:8px 0 6px; font-size:clamp(1.5rem,2.6vw,2.35rem); line-height:1; }
 .achievement-card p { margin:0; color:var(--muted); font-size:14px; line-height:1.6; }
 .achievement-card > svg { width:20px; height:20px; color:var(--brown); }
-.achievement-note { grid-column:2; margin:24px 0 0; color:var(--muted); font:400 11px/1.7 var(--mono); }
+.achievement-note { grid-column:2; width:min(100%,504px); min-height:53px; margin:24px 0 0; color:var(--muted); font:500 14px/1.9 var(--mono); }
 .hero-copy h1 { letter-spacing:-.035em; }
 @media (max-width:780px) { .achievements-grid { grid-template-columns:1fr; gap:45px; }.achievements-grid .section-heading { margin-bottom:0; }.achievement-note { grid-column:auto; }.hero-copy h1 { letter-spacing:-.025em; } }
 
