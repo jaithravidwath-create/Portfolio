@@ -14,7 +14,12 @@ function initialTheme(): Theme {
   if (typeof window === 'undefined') return 'light'
   const stored = window.localStorage.getItem('jvk-theme')
   if (stored === 'light' || stored === 'dark') return stored
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'light'
+}
+
+function shouldShowThemeNotice() {
+  if (typeof window === 'undefined') return false
+  return window.localStorage.getItem('jvk-theme-notice-seen') !== 'true'
 }
 
 function InterestGraphic({ kind }: { kind: InterestKind }) {
@@ -34,10 +39,16 @@ function App() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['home']))
   const [resumeAvailable, setResumeAvailable] = useState(false)
   const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [showThemeNotice, setShowThemeNotice] = useState(shouldShowThemeNotice)
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     window.localStorage.setItem('jvk-theme', theme)
   }, [theme])
+
+  const dismissThemeNotice = () => {
+    window.localStorage.setItem('jvk-theme-notice-seen', 'true')
+    setShowThemeNotice(false)
+  }
 
   useEffect(() => {
     const nodes = sections.map((section) => document.getElementById(section.id)).filter(Boolean) as HTMLElement[]
@@ -55,7 +66,7 @@ function App() {
   const reveal = (id: string) => visibleSections.has(id) ? 'is-visible' : ''
 
   return <div className="site-shell">
-    <FloatingDock activeSection={activeSection} theme={theme} onToggleTheme={() => setTheme((current) => current === 'light' ? 'dark' : 'light')} />
+    <FloatingDock activeSection={activeSection} theme={theme} showThemeNotice={showThemeNotice} onDismissThemeNotice={dismissThemeNotice} onToggleTheme={() => { dismissThemeNotice(); setTheme((current) => current === 'light' ? 'dark' : 'light') }} />
     <main>
       <section id="home" className={`section hero-section ${reveal('home')}`}>
         <div className="page-width hero-grid">
