@@ -68,13 +68,13 @@ export const learningSkills: Array<{ name: string; label: string; icon: Learning
 ]
 
 export const interestLabels = [
-  { title: 'Internet of Things', eyebrow: '01 / connected curiosity', description: 'Exploring how connected systems can make technology feel more useful and present in everyday life.', kind: 'nodes' },
-  { title: 'Machine Learning', eyebrow: '02 / patterns & possibility', description: 'Interested in the ways data and intelligent systems can support practical problem-solving.', kind: 'data' },
+  { title: 'Internet of Things', eyebrow: '01 / connected curiosity', description: 'Exploring how connected systems and automation can make technology feel more useful in everyday life.', kind: 'nodes' },
+  { title: 'Machine Learning', eyebrow: '02 / patterns & possibility', description: "I'm interested in the ways data and intelligent systems can support practical problem-solving.", kind: 'data' },
   { title: 'Full-stack Development', eyebrow: '03 / from idea to interface', description: 'Learning by building across the product surface, from an interface to the systems behind it.', kind: 'stack' },
-  { title: 'Programming & Problem-Solving', eyebrow: '04 / clarity through code', description: 'Enjoying the process of breaking a problem down, testing an idea, and making it work.', kind: 'code' },
-  { title: 'Data Structures and Algorithms', eyebrow: '05 / thinking in patterns', description: 'Building a stronger foundation for reasoning about problems, choices, and efficient solutions.', kind: 'dsa' },
+  { title: 'Programming & Problem-Solving', eyebrow: '04 / clarity through code', description: 'I enjoy the process of breaking a problem down, testing an idea, and making it work.', kind: 'code' },
+  { title: 'Data Structures and Algorithms', eyebrow: '05 / thinking in patterns', description: 'I believe in building a stronger foundation for reasoning about problems, and efficient solutions for them.', kind: 'dsa' },
   { title: 'Object-Oriented Programming', eyebrow: '06 / modeling ideas', description: 'Interested in organizing application logic around clear objects, responsibilities, and relationships.', kind: 'oop' },
-  { title: 'Database Management Systems', eyebrow: '07 / information with structure', description: 'Exploring how data can be modeled, stored, and accessed reliably inside useful applications.', kind: 'dbms' },
+  { title: 'Database Management Systems', eyebrow: '07 / information with structure', description: 'Exploring how data can be modeled, stored, and accessed reliably and manipulated inside applications.', kind: 'dbms' },
 ] as const
 
 export const achievements: Array<{ title: string; type: string; description: string; icon: AchievementIcon }> = [
