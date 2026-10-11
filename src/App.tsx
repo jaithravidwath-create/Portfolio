@@ -55,10 +55,9 @@ function App() {
             <p className="identity-line"><span>{profile.status}</span><i /> <span>B.Tech CSE-IoT</span><i /> <span>{profile.college}</span></p>
             <div className="hero-actions"><a className="button button--primary" href="#projects">Explore my work <Icon name="arrowUpRight" /></a><a className="button button--text" href="#contact">Get in touch <Icon name="arrowUpRight" /></a><a className="resume-link" href={resumeAvailable ? profile.resumePath : '#resume'} {...(resumeAvailable ? { target: '_blank', rel: 'noreferrer' } : {})}>View resume <Icon name="file" /></a></div>
           </div>
-          <div className="hero-visual" aria-label="Abstract connected systems diagram" role="img">
-            <div className="hero-visual__label">A small map of<br /><strong>curiosity → making</strong></div>
-            <svg className="network-diagram" viewBox="0 0 520 520" aria-hidden="true"><circle className="diagram-orbit diagram-orbit--outer" cx="260" cy="260" r="194" /><circle className="diagram-orbit" cx="260" cy="260" r="118" /><path className="diagram-path" d="M90 318 168 138 368 164 430 340 260 414 90 318ZM168 138 260 260 368 164M260 260 430 340M260 260 90 318" /><path className="diagram-path diagram-path--soft" d="M168 138 430 340M368 164 90 318" /><circle className="diagram-node diagram-node--large" cx="260" cy="260" r="17" /><circle className="diagram-node" cx="90" cy="318" r="8" /><circle className="diagram-node" cx="168" cy="138" r="8" /><circle className="diagram-node" cx="368" cy="164" r="8" /><circle className="diagram-node" cx="430" cy="340" r="8" /><circle className="diagram-node" cx="260" cy="414" r="8" /><circle className="diagram-dot" cx="260" cy="260" r="4" /></svg>
-            <div className="hero-visual__legend"><span><i className="legend-dot legend-dot--navy" />systems</span><span><i className="legend-dot legend-dot--brown" />ideas</span><span><i className="legend-dot legend-dot--beige" />learning</span></div>
+          <div className="hero-visual" aria-label="Portrait of Jaithra Vidwath Kavuri" role="img">
+            <img className="hero-portrait" src="/vidwathpic.jpeg" alt="Jaithra Vidwath Kavuri wearing glasses and headphones" />
+            <span className="hero-portrait__caption">curiosity → making</span>
           </div>
         </div>
         <div className="hero-footer page-width"><span>Scroll to explore</span><span className="hero-footer__line" /><span>01 / 11</span></div>
