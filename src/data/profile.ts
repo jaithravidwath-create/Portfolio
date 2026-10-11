@@ -1,4 +1,5 @@
 export type ProfileIcon = 'github' | 'linkedin' | 'leetcode'
+export type LearningSkillIcon = 'git' | 'cpp' | 'js' | 'react' | 'html' | 'css' | 'sql' | 'java' | 'typescript'
 
 export const profile = {
   name: 'Jaithra Vidwath Kavuri',
@@ -9,7 +10,7 @@ export const profile = {
   status: 'Sophomore',
   location: 'Hyderabad, India',
   headline: 'Thoughtful code. Meaningful connections.',
-  intro: "I'm a CSE-IoT student and full-stack developer exploring the possibilities of connected systems, intelligent technology, and practical software solutions.",
+  intro: "I'm a CSE-IoT student and full-stack application developer exploring the possibilities of connected systems, intelligent technology, and practical software solutions.",
   resumePath: '/resume.pdf',
   contact: {
     email: 'jaithra.vidwath@gmail.com',
@@ -17,25 +18,53 @@ export const profile = {
   },
 }
 
+/** Full page order. Interests remains a page section between Projects and Work Experience. */
 export const sections = [
   { id: 'home', label: 'Home', shortLabel: 'Home', icon: 'home' },
   { id: 'about', label: 'About', shortLabel: 'About', icon: 'user' },
-  { id: 'resume', label: 'Resume', shortLabel: 'Resume', icon: 'file' },
   { id: 'skills', label: 'Skills', shortLabel: 'Skills', icon: 'code' },
   { id: 'projects', label: 'Projects', shortLabel: 'Projects', icon: 'layers' },
   { id: 'interests', label: 'Interests', shortLabel: 'Interests', icon: 'spark' },
   { id: 'experience', label: 'Work Experience', shortLabel: 'Work', icon: 'briefcase' },
+  { id: 'resume', label: 'Resume', shortLabel: 'Resume', icon: 'file' },
   { id: 'contact', label: 'Contact', shortLabel: 'Contact', icon: 'mail' },
+] as const
+
+/** The dock intentionally omits Interests while the section remains discoverable in the page flow. */
+export const navigationSections = [
+  sections[0],
+  sections[1],
+  sections[2],
+  sections[3],
+  sections[5],
+  sections[6],
+  sections[7],
 ] as const
 
 export const programmingLanguages = ['C', 'Python', 'Java', 'JavaScript', 'SQL']
 export const databases = ['MongoDB', 'MongoDB Atlas']
 export const tools = ['Postman', 'Visual Studio Code']
+
+export const learningSkills: Array<{ name: string; label: string; icon: LearningSkillIcon }> = [
+  { name: 'Git', label: 'version control', icon: 'git' },
+  { name: 'C++', label: 'systems & problem-solving', icon: 'cpp' },
+  { name: 'JavaScript', label: 'web development', icon: 'js' },
+  { name: 'React', label: 'interfaces', icon: 'react' },
+  { name: 'HTML', label: 'structure', icon: 'html' },
+  { name: 'CSS', label: 'visual systems', icon: 'css' },
+  { name: 'SQL', label: 'data foundations', icon: 'sql' },
+  { name: 'Java', label: 'application development', icon: 'java' },
+  { name: 'TypeScript', label: 'typed JavaScript', icon: 'typescript' },
+]
+
 export const interestLabels = [
   { title: 'Internet of Things', eyebrow: '01 / connected curiosity', description: 'Exploring how connected systems can make technology feel more useful and present in everyday life.', kind: 'nodes' },
   { title: 'Machine Learning', eyebrow: '02 / patterns & possibility', description: 'Interested in the ways data and intelligent systems can support practical problem-solving.', kind: 'data' },
   { title: 'Full-stack Development', eyebrow: '03 / from idea to interface', description: 'Learning by building across the product surface, from an interface to the systems behind it.', kind: 'stack' },
   { title: 'Programming & Problem-Solving', eyebrow: '04 / clarity through code', description: 'Enjoying the process of breaking a problem down, testing an idea, and making it work.', kind: 'code' },
+  { title: 'Data Structures and Algorithms', eyebrow: '05 / thinking in patterns', description: 'Building a stronger foundation for reasoning about problems, choices, and efficient solutions.', kind: 'dsa' },
+  { title: 'Object-Oriented Programming', eyebrow: '06 / modeling ideas', description: 'Interested in organizing application logic around clear objects, responsibilities, and relationships.', kind: 'oop' },
+  { title: 'Database Management Systems', eyebrow: '07 / information with structure', description: 'Exploring how data can be modeled, stored, and accessed reliably inside useful applications.', kind: 'dbms' },
 ] as const
 
 export type Project = {
@@ -53,10 +82,11 @@ export const projects: Project[] = [
   {
     number: '01',
     title: 'Equipment Rental Application',
-    description: 'A full-stack equipment rental application developed through practical application development work.',
-    technologies: ['Full-stack development', 'MongoDB', 'MongoDB Atlas', 'Postman', 'Visual Studio Code'],
+    description: 'A full-stack equipment rental application that brings users, equipment, requests, and admin oversight into one practical workflow. It keeps a database of users and credentials, supports existing-user login and new-user sign-up, records which equipment was borrowed by whom, and gives authorized admins a clear view of borrowed dates, equipment details, pending requests, and completed requests.',
+    technologies: ['Full-stack application development', 'MongoDB', 'MongoDB Atlas', 'Postman', 'Visual Studio Code'],
     kind: 'rental',
     featured: true,
+    repository: 'https://github.com/jaithravidwath-create/equipment-rental',
   },
   {
     number: '02',
@@ -104,8 +134,9 @@ export const verifiedKnowledge = {
   },
   programmingLanguages,
   toolsAndTechnologies: [...databases, ...tools],
+  currentlyLearning: learningSkills.map(({ name, label }) => ({ name, label })),
   interests: interestLabels.map((item) => item.title),
-  projects: projects.map(({ title, description, technologies }) => ({ title, description, technologies })),
+  projects: projects.map(({ title, description, technologies, repository }) => ({ title, description, technologies, repository })),
   experience: {
     title: "McKinsey Forward Program Fellow '25",
     program: 'McKinsey Forward Program',

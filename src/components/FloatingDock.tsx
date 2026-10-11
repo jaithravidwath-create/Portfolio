@@ -1,4 +1,4 @@
-import { sections } from '../data/profile'
+import { navigationSections } from '../data/profile'
 import { Icon } from './Icon'
 
 type Props = { activeSection: string }
@@ -9,7 +9,7 @@ export function FloatingDock({ activeSection }: Props) {
       <span>J</span><span>V</span><span>K</span>
     </a>
     <div className="dock-items">
-      {sections.map((section) => <a key={section.id} className={`dock-item ${activeSection === section.id ? 'is-active' : ''}`} href={`#${section.id}`} aria-label={section.label} aria-current={activeSection === section.id ? 'location' : undefined}>
+      {navigationSections.map((section) => <a key={section.id} className={`dock-item ${activeSection === section.id ? 'is-active' : ''}`} href={`#${section.id}`} aria-label={section.label} aria-current={activeSection === section.id ? 'location' : undefined}>
         <Icon name={section.icon as Parameters<typeof Icon>[0]['name']} />
         <span className="dock-tooltip">{section.label}</span>
       </a>)}

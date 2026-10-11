@@ -23,3 +23,34 @@
 @media (max-width:780px) { .page-width { width:calc(100% - 40px); }.section { padding:96px 0; }.floating-dock { top:auto; right:12px; bottom:12px; left:12px; width:auto; transform:none; flex-direction:row; justify-content:center; gap:0; }.dock-mark,.dock-scroll-note,.dock-tooltip { display:none; }.dock-items { width:auto; flex-direction:row; gap:2px; padding:5px; border-radius:26px; box-shadow:0 10px 25px rgba(36,54,75,.15); }.dock-item { width:35px; height:35px; }.dock-item.is-active:before { top:-5px; left:50%; width:13px; height:2px; transform:translateX(-50%); }.hero-section { min-height:auto; padding:30px 0 32px; }.hero-grid { display:flex; flex-direction:column; align-items:stretch; gap:50px; }.topline { margin-bottom:55px; }.hero-visual { align-self:center; width:min(100%,390px); }.hero-footer { margin-top:56px; }.about-grid,.resume-grid,.experience-grid,.contact-grid { grid-template-columns:1fr; gap:45px; }.about-bottom { display:block; margin-top:50px; }.hand-note { display:block; margin-top:25px; }.resume-grid .section-heading,.experience-grid .section-heading { margin-bottom:0; }.resume-panel { grid-template-columns:1fr; gap:38px; padding:24px; }.resume-paper { width:min(75%,280px); min-height:275px; margin:auto; }.skills-layout { grid-template-columns:1fr; gap:34px; }.skills-intro { min-height:110px; }.skill-group { padding:27px 0 0; border-top:1px solid var(--line); border-left:0; }.skills-footer { display:block; }.skills-footer__items { margin-top:17px; }.featured-project { padding:26px; }.featured-project__body { grid-template-columns:1fr; gap:34px; padding-top:38px; }.project-grid,.interest-grid,.profiles-grid { grid-template-columns:1fr; }.interest-card { min-height:270px; }.contact-grid { align-items:start; }.profiles-header { display:block; }.profiles-header p:last-child { margin-top:14px; }.site-footer { padding-bottom:90px; }.site-footer .page-width { flex-wrap:wrap; }.chat-launcher { right:16px; bottom:71px; }.chat-panel { right:10px; bottom:118px; width:calc(100vw - 20px); height:min(570px,calc(100vh - 140px)); } }
 @media (max-width:480px) { h1 { font-size:clamp(3.4rem,17vw,5rem); }.section-heading { grid-template-columns:41px 1fr; gap:15px; margin-bottom:46px; }.section-heading__index { font-size:10px; }.hero-intro { font-size:15px; }.identity-line { flex-wrap:wrap; line-height:1.8; }.identity-line i { display:none; }.hero-actions { align-items:flex-start; flex-direction:column; gap:15px; }.hero-visual__label { top:12%; left:9%; }.hero-visual__legend { right:7%; bottom:12%; }.project-card__footer { align-items:start; flex-direction:column; }.coming-soon { text-align:left; }.contact-detail > a { font-size:13px; }.profile-card { min-height:0; }.chat-panel__header h2 { font-size:1.8rem; } }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }.section-reveal { opacity:1; transform:none; } }
+
+/* Preview update: learning carousel, repository action, and expanded interests */
+.learning-skills { margin-top:38px; padding:25px 0 27px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.learning-skills__heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:18px; }
+.learning-skills__heading .skill-group__label { margin-bottom:8px; }
+.learning-skills__intro { max-width:520px; margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
+.learning-skills__counter { color:var(--brown); font:500 10px var(--mono); letter-spacing:.1em; }
+.learning-strip { min-height:72px; overflow:hidden; }
+.learning-strip__row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; animation:learning-fade 420ms ease both; }
+.learning-skill { display:flex; align-items:center; gap:12px; min-height:68px; padding:12px 14px; border:1px solid rgba(91,70,54,.2); background:rgba(251,247,240,.45); }
+.learning-skill__icon { display:grid; place-items:center; flex:0 0 34px; width:34px; height:34px; border-radius:9px; color:var(--navy); background:var(--beige); }
+.learning-skill__icon svg { width:20px; height:20px; }
+.learning-skill__icon--js,.learning-skill__icon--typescript { color:var(--cream); background:var(--navy); }
+.learning-skill strong { display:block; color:var(--navy); font:600 13px var(--sans); }
+.learning-skill small { display:block; margin-top:4px; color:var(--muted); font:400 9px var(--mono); }
+.project-repo-link { display:inline-flex; align-items:center; gap:8px; margin-top:4px; padding:10px 12px; border:1px solid rgba(229,213,195,.35); color:var(--cream); font:500 10px var(--mono); transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+.project-repo-link svg { width:14px; height:14px; color:var(--brown); }
+.project-repo-link:hover,.project-repo-link:focus-visible { border-color:var(--brown); background:rgba(229,213,195,.1); transform:translateY(-2px); }
+.project-card__footer a { display:inline-flex; align-items:center; gap:5px; color:var(--navy); font:500 10px var(--mono); }
+.project-card__footer a svg { width:12px; height:12px; color:var(--brown); }
+.interest-card:last-child { grid-column:span 2; }
+.interest-card--dsa .interest-graphic,.interest-card--oop .interest-graphic,.interest-card--dbms .interest-graphic { display:flex; flex-direction:column; align-items:flex-end; justify-content:center; gap:9px; color:var(--brown-dark); }
+.interest-card--dsa .interest-graphic > span,.interest-card--oop .interest-graphic > span,.interest-card--dbms .interest-graphic > span { font:400 9px var(--mono); }
+.interest-glyph { color:var(--navy); font:600 20px var(--mono); letter-spacing:-.1em; }
+.interest-glyph--boxes { display:flex; gap:5px; }
+.interest-glyph--boxes i { display:block; width:28px; height:22px; border:1px solid var(--navy); background:rgba(246,240,230,.35); }
+.interest-glyph--database { display:flex; flex-direction:column; gap:0; width:60px; }
+.interest-glyph--database i { display:block; height:9px; border:1px solid var(--navy); border-radius:50%; background:var(--beige); }
+@keyframes learning-fade { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+@media (max-width:780px) { .learning-skills__heading { align-items:start; }.learning-strip__row { grid-template-columns:1fr; }.learning-skill { min-height:58px; }.interest-card:last-child { grid-column:auto; } }
+@media (prefers-reduced-motion:reduce) { .learning-strip__row { animation:none; } }
