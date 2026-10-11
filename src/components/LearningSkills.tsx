@@ -15,7 +15,7 @@ export function LearningSkills() {
 
   const currentRow = rows[rowIndex]
   return <div className="learning-skills section-reveal" aria-label="Skills Jaithra is currently learning or plans to learn soon">
-    <div className="learning-skills__heading"><div><p className="skill-group__label">Currently learning / next up</p><p className="learning-skills__intro">A moving shortlist of technologies I’m spending time with or hope to explore soon.</p></div><span className="learning-skills__counter">{String(rowIndex + 1).padStart(2, '0')} / {String(rows.length).padStart(2, '0')}</span></div>
+    <div className="learning-skills__heading"><div><p className="skill-group__label">Currently learning / plan to learn soon</p><p className="learning-skills__intro">A short list of languages and application I’m exploring presently or plan to explore soon.</p></div><span className="learning-skills__counter">{String(rowIndex + 1).padStart(2, '0')} / {String(rows.length).padStart(2, '0')}</span></div>
     <div className="learning-strip" aria-live="polite">
       <div className="learning-strip__row" key={rowIndex}>{currentRow.map((skill) => <div className="learning-skill" key={skill.name}><span className={`learning-skill__icon learning-skill__icon--${skill.icon}`}><Icon name={skill.icon} /></span><span><strong>{skill.name}</strong><small>{skill.label}</small></span></div>)}</div>
     </div>

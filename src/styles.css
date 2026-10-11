@@ -177,5 +177,5 @@ body { transition:background-color .28s ease,color .28s ease; }
 .theme-notice__close { position:absolute; top:5px; right:6px; width:20px; height:20px; padding:0; border:0; background:transparent; color:var(--muted); font-size:17px; line-height:1; }
 .theme-notice__close:hover,.theme-notice__close:focus-visible { color:var(--navy); }
 @media (max-width:780px) {
-  .theme-notice { position:fixed; z-index:31; top:auto; right:12px; bottom:66px; left:auto; width:min(220px,calc(100vw - 24px)); }
+  .theme-notice { position:fixed; z-index:31; top:auto; right:12px; bottom:132px; left:auto; width:min(220px,calc(100vw - 24px)); }
 }
