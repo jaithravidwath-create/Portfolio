@@ -76,7 +76,7 @@ async function start() {
     app.use(vite.middlewares)
   } else {
     app.use(express.static(path.join(root, 'dist'), { etag: true, maxAge: '1d' }))
-    app.get('*', (_req, res) => res.sendFile(path.join(root, 'dist', 'index.html')))
+    app.get(/.*/, (_req, res) => res.sendFile(path.join(root, 'dist', 'index.html')))
   }
   app.listen(port, '0.0.0.0', () => console.log(`JVK portfolio listening on 0.0.0.0:${port}`))
 }
