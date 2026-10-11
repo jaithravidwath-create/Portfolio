@@ -101,3 +101,8 @@
 .dock-items { max-height:calc(100vh - 160px); overflow-y:auto; scrollbar-width:none; }
 .dock-items::-webkit-scrollbar { display:none; }
 @media (max-width:780px) { .work-project-grid,.clubs-grid { grid-template-columns:1fr; }.resume-grid { grid-template-columns:1fr; }.resume-panel { grid-template-columns:1fr; padding:24px; }.resume-actions { margin-left:0; justify-content:center; }.dock-items { max-width:calc(100vw - 24px); overflow-x:auto; overflow-y:hidden; justify-content:flex-start; }.club-card { padding:22px; } }
+
+/* Preview edit: make the resume presentation more professional and spacious on desktop. */
+.resume-grid h2 { font-size:59px; }
+.resume-panel { width:643px; }
+@media (max-width:780px) { .resume-grid h2 { font-size:clamp(2.8rem,12vw,4rem); } .resume-panel { width:auto; } }
