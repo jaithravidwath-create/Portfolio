@@ -88,6 +88,7 @@ export const workProjects = [
   { title: 'Smart Hostel Room Allotment System', technology: 'DBMS (SQL)', description: 'A database-focused system concept for organizing hostel room allotment and related student records.' },
   { title: 'Sales Forecasting with Curve Fitting', technology: 'MATLAB', description: 'A MATLAB study exploring curve fitting as a way to examine sales patterns and forecast trends.' },
   { title: 'AI-Driven Network Aware Smart Street Lighting', technology: 'Predictive Quality of Service (pQoS) in Computer Networks', description: 'A forward-looking smart-lighting concept using network-aware intelligence and predictive QoS.' },
+  { title: 'Smart Automated File Organiser & Search Engine', technology: 'Java', description: 'I am currently working on a Java-based tool to organise files automatically and make them easier to search and find.' },
 ] as const
 
 export const clubs = [
@@ -111,25 +112,27 @@ export const projects: Project[] = [
   {
     number: '01',
     title: 'Equipment Rental Application',
-    description: 'A full-stack equipment rental application that brings users, equipment, requests, and admin oversight into one practical workflow. It keeps a database of users and credentials, supports existing-user login and new-user sign-up, records which equipment was borrowed by whom, and gives authorized admins a clear view of borrowed dates, equipment details, pending requests, and completed requests.',
+    description: 'I built a full-stack equipment rental application with separate user and admin workflows. Users can register, log in, browse equipment, request rentals, track their rental history, and cancel pending requests, while admins can manage equipment, review requests, approve or reject them, and mark items as returned.',
     technologies: ['Full-stack application development', 'MongoDB', 'MongoDB Atlas', 'Postman', 'Visual Studio Code'],
     kind: 'rental',
     featured: true,
-    repository: 'https://github.com/jaithravidwath-create/equipment-rental',
+    repository: 'https://github.com/jaithravidwath-create/equipment-rental-fullstack',
   },
   {
     number: '02',
     title: 'Blood Donor Management System',
-    description: 'A Python project focused on organizing the idea of blood donor management.',
+    description: 'I built a menu-driven Python application for managing donors, donations, blood inventory, and hospital requests. It uses SQLite for storage and includes donor eligibility checks, expiry tracking, blood-group compatibility, low-stock alerts, and CSV reports.',
     technologies: ['Python'],
     kind: 'blood',
+    repository: 'https://github.com/jaithravidwath-create/BloodDonorManagementSystem',
   },
   {
     number: '03',
     title: 'Smart Traffic Management System',
-    description: 'A C programming project exploring the logic of traffic management.',
+    description: 'I built a dependency-free C11 simulation of a four-way intersection that compares fixed-time and adaptive traffic signals. It also gives emergency vehicles priority and reports queue, throughput, and waiting-time statistics.',
     technologies: ['C'],
     kind: 'traffic',
+    repository: 'https://github.com/jaithravidwath-create/smart-traffic-management-system',
   },
 ]
 

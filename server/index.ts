@@ -74,7 +74,7 @@ app.get('/api/health', (_req, res) => res.json({ ok: true }))
 
 async function start() {
   if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({ root, server: { middlewareMode: true }, appType: 'spa' })
+    const vite = await createViteServer({ root, server: { middlewareMode: true, allowedHosts: true }, appType: 'spa' })
     app.use(vite.middlewares)
   } else {
     app.use(express.static(path.join(root, 'dist'), { etag: true, maxAge: '1d' }))
