@@ -56,7 +56,17 @@ export function Chatbot() {
           {loading && <div className="chat-message chat-message--assistant"><span className="chat-message__role">JBot AI</span><div className="typing" aria-label="JBot AI is typing"><i /><i /><i /></div></div>}
           <div ref={messagesEndRef} />
         </div>
-        {messages.length === 1 && <div className="chat-suggestions"><p>Try asking</p>{suggestedQuestions.slice(0, 4).map((question) => <button type="button" key={question} onClick={() => void sendMessage(question)}>{question}</button>)}</div>}
+        
+        {/* Render suggested questions persistently at every dialogue exchange */}
+        <div className="chat-suggestions">
+          <p>Try asking</p>
+          {suggestedQuestions.slice(0, 4).map((question) => (
+            <button type="button" key={question} onClick={() => void sendMessage(question)} disabled={loading}>
+              {question}
+            </button>
+          ))}
+        </div>
+
         {error && <p className="chat-error" role="alert">{error}</p>}
       </div>
       <form className="chat-input" onSubmit={(event) => { event.preventDefault(); void sendMessage(input) }}>
