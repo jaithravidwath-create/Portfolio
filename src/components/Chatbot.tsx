@@ -15,8 +15,13 @@ export function Chatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [messages, loading])
-  useEffect(() => { if (open) window.setTimeout(() => inputRef.current?.focus(), 100) }, [open])
+  useEffect(() => { 
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }) 
+  }, [messages, loading])
+
+  useEffect(() => { 
+    if (open) window.setTimeout(() => inputRef.current?.focus(), 100) 
+  }, [open])
 
   async function sendMessage(raw: string) {
     const content = raw.trim()
@@ -33,7 +38,9 @@ export function Chatbot() {
       setMessages((current) => [...current, { role: 'assistant', content: payload.reply || 'I do not have that detail in Jaithra’s verified profile yet.' }])
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : 'The chat service is unavailable right now.')
-    } finally { setLoading(false) }
+    } finally { 
+      setLoading(false) 
+    }
   }
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -54,17 +61,17 @@ export function Chatbot() {
         <div className="chat-messages" aria-live="polite">
           {messages.map((message, index) => <div className={`chat-message chat-message--${message.role}`} key={`${message.role}-${index}`}><span className="chat-message__role">{message.role === 'assistant' ? 'JVK' : 'You'}</span><p>{message.content}</p></div>)}
           {loading && <div className="chat-message chat-message--assistant"><span className="chat-message__role">JBot AI</span><div className="typing" aria-label="JBot AI is typing"><i /><i /><i /></div></div>}
+          
+          {/* Suggestions placed INSIDE the scroll container below messages */}
+          <div className="chat-suggestions" style={{ marginTop: '12px' }}>
+            <p>TRY ASKING</p>
+            {suggestedQuestions.slice(0, 4).map((question) => (
+              <button type="button" key={question} onClick={() => void sendMessage(question)} disabled={loading}>
+                {question}
+              </button>
+            ))}
+          </div>
           <div ref={messagesEndRef} />
-        </div>
-        
-        {/* Render suggested questions persistently at every dialogue exchange */}
-        <div className="chat-suggestions">
-          <p>Try asking</p>
-          {suggestedQuestions.slice(0, 4).map((question) => (
-            <button type="button" key={question} onClick={() => void sendMessage(question)} disabled={loading}>
-              {question}
-            </button>
-          ))}
         </div>
 
         {error && <p className="chat-error" role="alert">{error}</p>}
