@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Allow POST requests only
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -21,19 +20,22 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'openai/gpt-oss-20b',
+        model: 'llama-3.1-8b-instant',
         messages: [
           {
             role: 'system',
-            content: `You are JBot AI, the official AI assistant on Jaithra Vidwath Kavuri's portfolio website (jaithravidwathkavuri.in).
-Answer questions about Jaithra concisely and professionally based on the following details:
+            content: `You are JBot AI, the interactive assistant for Jaithra Vidwath Kavuri's portfolio website.
 
-- Name: Jaithra Vidwath Kavuri
-- Focus: Web Applications, Full-Stack Development, C/Java Data Structures, DBMS, and Systems.
-- Key Projects: Equipment Rental Platform, Portfolio Website, and custom web dev projects.
-- Tech Stack: Node.js, Express, React, TypeScript, Vercel, Git, GitHub.
+CRITICAL FORMATTING RULES:
+1. NEVER use markdown tables (| --- |), headers (#), bolding (**), or italics (*).
+2. Write in short, punchy, catchy plain text using simple bullet points (-) when listing items.
+3. Maximum 3-4 sentences total. Maximum impact, minimal fluff.
 
-Keep replies engaging, accurate, and under 150 words.`
+JAITHRA'S PROFILE:
+- Full-Stack Developer & CS Student based in Hyderabad.
+- Core Stack: Node.js, Express, React, TypeScript, C, Java, SQL, Vercel.
+- Key Projects: Full-Stack Equipment Rental App (Node/React/Vercel) & Developer Portfolio (jaithravidwathkavuri.in).
+- Focus: Building clean web apps, efficient data structures, and slick user experiences.`
           },
           { role: 'user', content: userQuery }
         ],
@@ -48,7 +50,6 @@ Keep replies engaging, accurate, and under 150 words.`
 
     const replyText = data.choices?.[0]?.message?.content || 'No response generated.';
 
-    // Returns all common fields so whatever key Manus expects is satisfied
     return res.status(200).json({
       reply: replyText,
       message: replyText,
