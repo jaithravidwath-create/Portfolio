@@ -54,7 +54,9 @@ export function Chatbot() {
     </button>
     <aside className={`chat-panel ${open ? 'is-open' : ''}`} aria-hidden={!open} aria-label="JBot AI chatbot">
       <div className="chat-panel__header">
-        <div><span className="chat-status"><i /> online when configured</span><h2>JBot AI</h2></div>
+        <div>
+          <h2>JBot AI</h2>
+        </div>
         <button className="icon-button" type="button" aria-label="Close chat" onClick={() => setOpen(false)}><Icon name="close" /></button>
       </div>
       <div className="chat-panel__body">
@@ -62,7 +64,6 @@ export function Chatbot() {
           {messages.map((message, index) => <div className={`chat-message chat-message--${message.role}`} key={`${message.role}-${index}`}><span className="chat-message__role">{message.role === 'assistant' ? 'JVK' : 'You'}</span><p>{message.content}</p></div>)}
           {loading && <div className="chat-message chat-message--assistant"><span className="chat-message__role">JBot AI</span><div className="typing" aria-label="JBot AI is typing"><i /><i /><i /></div></div>}
           
-          {/* Suggestions placed INSIDE the scroll container below messages */}
           <div className="chat-suggestions" style={{ marginTop: '12px' }}>
             <p>TRY ASKING</p>
             {suggestedQuestions.slice(0, 4).map((question) => (
@@ -76,11 +77,10 @@ export function Chatbot() {
 
         {error && <p className="chat-error" role="alert">{error}</p>}
       </div>
-      <form className="chat-input" onSubmit={(event) => { event.preventDefault(); void sendMessage(input) }}>
+      <form className="chat-input" style={{ paddingBottom: '16px', marginTop: '4px' }} onSubmit={(event) => { event.preventDefault(); void sendMessage(input) }}>
         <input ref={inputRef} type="text" value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={handleKeyDown} placeholder="Ask about Jaithra…" maxLength={300} aria-label="Ask a question" disabled={loading} />
         <button type="submit" aria-label="Send message" disabled={loading || !input.trim()}><Icon name="send" /></button>
       </form>
-      <p className="chat-note">Verified profile answers only · max 300 characters</p>
     </aside>
   </>
 }
