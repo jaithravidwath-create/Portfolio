@@ -77,7 +77,11 @@ function App() {
             <p className="hero-headline">{profile.headline}</p>
             <p className="hero-intro">{profile.intro}</p>
             <p className="identity-line"><span>{profile.status}</span><i /> <span>B.Tech CSE-IoT</span><i /> <span>{profile.college}</span></p>
-            <div className="hero-actions"><a className="button button--primary" href="#projects">Explore my work <Icon name="arrowUpRight" /></a><a className="button button--text" href="#contact">Get in touch <Icon name="arrowUpRight" /></a><a className="resume-link" href={resumeAvailable ? profile.resumePath : '#resume'} {...(resumeAvailable ? { target: '_blank', rel: 'noreferrer' } : {})}>View resume <Icon name="file" /></a></div>
+            <div className="hero-actions">
+              <a className="button button--primary" href="#projects">Explore my work <Icon name="arrowUpRight" /></a>
+              <a className="button button--primary" href="#contact">Get in touch <Icon name="arrowUpRight" /></a>
+              <a className="button button--primary" href={resumeAvailable ? profile.resumePath : '#resume'} {...(resumeAvailable ? { target: '_blank', rel: 'noreferrer' } : {})}>View resume <Icon name="file" /></a>
+            </div>
           </div>
           <div className="hero-visual" aria-label="Portrait of Jaithra Vidwath Kavuri" role="img">
             <img className="hero-portrait" src="/vidwathpic.jpeg" alt="Jaithra Vidwath Kavuri wearing glasses and headphones" />
